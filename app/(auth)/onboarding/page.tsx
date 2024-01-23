@@ -4,16 +4,11 @@ import { currentUser } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 
 async function Page() {
-  console.log("Getting current user");
   const user = await currentUser();
-  console.log("Got current user");
   if (!user) return null; // to avoid typescript warnings
-  console.log("If not seeing this, it has returned null");
 
   const userInfo = await fetchUser(user.id);
-  console.log("Fetched user info");
   if (userInfo?.onboarded) redirect("/");
-  console.log("If not seeing this, it has redirected to the home page");
 
   const userData = {
     id: user?.id,

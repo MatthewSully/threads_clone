@@ -10,7 +10,6 @@ import User from "../models/user.model";
 import { connectToDb } from "../mongoose";
 
 export async function fetchUser(userId: string) {
-  console.log("In fetch user");
   try {
     connectToDb();
 
@@ -40,7 +39,6 @@ export async function updateUser({
   username,
   image,
 }: Params): Promise<void> {
-  console.log("In update user");
   try {
     connectToDb();
 
@@ -65,7 +63,6 @@ export async function updateUser({
 }
 
 export async function fetchUserPosts(userId: string) {
-  console.log("In fetch user posts");
   try {
     connectToDb();
 
@@ -111,7 +108,6 @@ export async function fetchUsers({
   pageSize?: number;
   sortBy?: SortOrder;
 }) {
-  console.log("In fetch users");
   try {
     connectToDb();
 
@@ -158,7 +154,6 @@ export async function fetchUsers({
 }
 
 export async function getActivity(userId: string) {
-  console.log("In get activity");
   try {
     connectToDb();
 
