@@ -35,7 +35,9 @@ type Event = {
 };
 
 export const POST = async (request: Request) => {
+  console.log("In 1");
   const payload = await request.json();
+  console.log("In 1.01");
   const header = headers();
 
   const heads = {
@@ -46,10 +48,12 @@ export const POST = async (request: Request) => {
 
   // Activitate Webhook in the Clerk Dashboard.
   // After adding the endpoint, you'll see the secret on the right side.
+  console.log("In before hook");
   const wh = new Webhook(process.env.NEXT_CLERK_WEBHOOK_SECRET || "");
+  console.log("In after hook");
 
   let evnt: Event | null = null;
-
+  console.log("In 2");
   try {
     evnt = wh.verify(
       JSON.stringify(payload),
@@ -58,7 +62,7 @@ export const POST = async (request: Request) => {
   } catch (err) {
     return NextResponse.json({ message: err }, { status: 400 });
   }
-
+  console.log("In 3");
   const eventType: EventType = evnt?.type!;
 
   // Listen organization creation event
@@ -79,7 +83,7 @@ export const POST = async (request: Request) => {
         "org bio",
         created_by
       );
-
+      console.log("In 1.2");
       return NextResponse.json({ message: "User created" }, { status: 201 });
     } catch (err) {
       console.log(err);
@@ -89,7 +93,7 @@ export const POST = async (request: Request) => {
       );
     }
   }
-
+  console.log("In 4");
   // Listen organization invitation creation event.
   // Just to show. You can avoid this or tell people that we can create a new mongoose action and
   // add pending invites in the database.
