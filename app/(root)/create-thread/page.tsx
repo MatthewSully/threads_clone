@@ -4,9 +4,12 @@ import { fetchUser } from "@/lib/actions/user.actions";
 import PostThread from "@/components/forms/PostThread";
 
 const Page = async () => {
+  console.log("loaded create thread");
   const user = await currentUser();
+  console.log("await current user");
 
   if (!user) return null;
+  console.log("If no see, returned null");
 
   const userInfo = await fetchUser(user.id);
 
