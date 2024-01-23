@@ -16,6 +16,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  console.log("In auth root");
   return (
     <ClerkProvider>
       <html lang="en">

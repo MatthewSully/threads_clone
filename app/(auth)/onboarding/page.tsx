@@ -4,6 +4,7 @@ import { currentUser } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 
 async function Page() {
+  console.log("Getting current user");
   const user = await currentUser();
   console.log("Got current user");
   if (!user) return null; // to avoid typescript warnings
