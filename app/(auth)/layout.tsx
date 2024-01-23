@@ -18,14 +18,14 @@ export default function RootLayout({
 }) {
   console.log("In auth root");
   return (
-    <ClerkProvider>
-      <html lang="en">
+    <html lang="en">
+      <ClerkProvider>
         <body className={`${inter.className} bg-dark-1`}>
           <div className="w-full flex justify-center items-center min-h-screen">
             {children}
           </div>
         </body>
-      </html>
-    </ClerkProvider>
+      </ClerkProvider>
+    </html>
   );
 }
