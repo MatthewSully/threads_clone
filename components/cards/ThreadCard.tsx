@@ -52,7 +52,7 @@ const ThreadCard = ({
                 src={author.image}
                 alt="Profile image"
                 fill
-                className="cursor-pointer rounded-full"
+                className="cursor-pointer rounded-full object-cover aspect-square"
               />
             </Link>
 
@@ -128,7 +128,7 @@ const ThreadCard = ({
             alt={community.name}
             width={14}
             height={14}
-            className="ml-1 rounded-full object-cover"
+            className="ml-1 rounded-full object-cover aspect-square"
           />
         </Link>
       )}
